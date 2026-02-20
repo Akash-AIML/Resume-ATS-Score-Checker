@@ -1,4 +1,4 @@
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage, SystemMessage
 from typing import Dict, List
@@ -12,10 +12,10 @@ class RAGExplainer:
         llm_kwargs = {
             "model": "gpt-4.1-nano",
             "temperature": 0.3,
-            "openai_api_key": settings.OPENAI_API_KEY
+            "api_key": settings.OPENAI_API_KEY
         }
         if settings.OPENAI_BASE_URL:
-            llm_kwargs["openai_api_base"] = settings.OPENAI_BASE_URL
+            llm_kwargs["base_url"] = settings.OPENAI_BASE_URL
         
         self.llm = ChatOpenAI(**llm_kwargs)
     

@@ -1,27 +1,30 @@
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
-python-multipart==0.0.6
-pydantic==2.5.3
-pydantic-settings==2.1.0
+fastapi==0.128.0
+uvicorn==0.39.0
+python-multipart==0.0.20
+pydantic==2.11.9
+pydantic-settings==2.10.1
 
 # PDF Processing
-pdfplumber==0.10.3
+pdfplumber==0.11.8
 PyPDF2==3.0.1
+pytesseract==0.3.13
+pdf2image==1.17.0
+Pillow==11.3.0
 
-# ML & Embeddings
-sentence-transformers==2.3.1
-torch==2.1.2
-numpy==1.26.4
-scipy==1.11.4
-scikit-learn==1.4.0
+# Embeddings (using OpenAI API)
+numpy==2.0.2
+scikit-learn==1.6.1
 
 # LangChain & RAG
-langchain==0.0.354
-langchain-community==0.0.20
-langchain-openai==0.0.6
-chromadb==0.4.22
-tiktoken==0.5.2
-openai==1.10.0
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-openai==0.3.35
+chromadb==1.4.1
+tiktoken==0.12.0
+openai==2.16.0
+httpx==0.28.1
 
 # Utilities
-python-dotenv==1.0.0
+python-dotenv==1.1.0
+
+

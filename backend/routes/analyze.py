@@ -18,7 +18,14 @@ router = APIRouter(prefix="/analyze", tags=["Resume Analysis"])
 # Initialize services
 embedding_model = EmbeddingModel(settings.EMBEDDING_MODEL)
 ranking_engine = RankingEngine()
-rag_explainer = RAGExplainer()
+rag_explainer = None  # Lazy init to avoid startup crash if no API key
+
+
+def get_rag_explainer():
+    global rag_explainer
+    if rag_explainer is None:
+        rag_explainer = RAGExplainer()
+    return rag_explainer
 
 
 class AnalysisResponse(BaseModel):
@@ -107,7 +114,7 @@ async def analyze_resume(
         )
         
         # Generate AI explanation and suggestions
-        explanation = rag_explainer.generate_explanation(
+        explanation = get_rag_explainer().generate_explanation(
             resume_text=resume_text,
             job_description=job_text,
             ranking_result=ranking_result,
@@ -184,7 +191,7 @@ async def analyze_resume_text(
         )
         
         # Generate AI explanation
-        explanation = rag_explainer.generate_explanation(
+        explanation = get_rag_explainer().generate_explanation(
             resume_text=resume_text,
             job_description=job_description,
             ranking_result=ranking_result,
