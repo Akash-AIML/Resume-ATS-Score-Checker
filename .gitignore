@@ -1,0 +1,45 @@
+# Virtual environments
+venv/
+env/
+.venv/
+frontend/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+*.db
+
+# Embeddings / vector stores
+chroma_db/
+embeddings/
+
+# Uploads
+uploads/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+
+# Node modules
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment files
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
